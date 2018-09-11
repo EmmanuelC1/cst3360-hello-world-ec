@@ -21,8 +21,12 @@ nav a:hover { /*pseudo class */
     transition: .9s; /* transition effect */
     
 }
-#me, #welcomeText {
+#me {
+    float: left;
+}
+#welcomeText {
     float:left;
+    font-size:1.4em;
 }
 
 footer {
@@ -49,6 +53,7 @@ td strong {
 
 .table-row {
     background-color: #753900;
+    color: white;
 }
 
 ul {
@@ -67,4 +72,11 @@ h1 {
 }
 img {
     height: 800px;
+}
+
+div {
+    text-align: left;
+}
+#content {
+    padding-left:350px;
 }

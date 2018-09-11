@@ -1,0 +1,22 @@
+h1 {
+    font-size: 2em;
+    background-color: MidnightBlue;
+    color: white;
+    font-family:'Open Sans';
+    padding: 20px;
+    margin-left: 0px;
+}
+
+#description {
+    font-size:1.2em;
+    margin: 40px;
+}
+
+h2 {
+    color: black;
+    font-size: 1.7em;
+    font-family:'Open Sans';
+}
+#programs{
+    margin:10px;
+}
