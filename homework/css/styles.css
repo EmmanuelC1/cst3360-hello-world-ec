@@ -1,0 +1,99 @@
+body{
+    background-color: black;
+}
+
+#top{
+    width:800px;
+    margin-left:230px;
+}
+
+header, nav{
+    text-align: center;
+}
+
+nav a{
+    padding:15px;
+    padding-bottom:4px;
+    font-size: 1.8em;
+    text-decoration: none; 
+    color: white;
+}
+
+nav a:hover {
+    border-bottom:3px white;
+    font-size: 2.5em;
+    transition: .5s;
+    color: Maroon;
+}
+
+p {
+    color:white;
+    text-align: center;
+    padding-left: 35px;
+    padding-right: 35px;
+}
+hr {
+    width:32%;
+    margin-left: 5px;
+}
+
+#description {
+  font-size: 1.8em;
+  color:yellow;
+}
+
+h1 {
+    text-align: center;
+    color: yellow;
+    background-color: Maroon;
+    padding: 20px;
+    font-family:'Open Sans';
+}
+
+pictures {
+    width: 20px;
+    height:20px;
+}
+#text {
+    text-align: right;
+    font-size: 1.2em;
+}
+
+footer{
+    text-align: center;
+    color: grey;
+}
+
+img {
+    padding-left:25px;
+}
+#cpp, #java{
+    padding-left:40px;
+    float: left;
+    margin-left:20px;
+}
+#cpptext {
+    text-align: right;
+    font-size: 1.3em;
+    padding-left: 200px;
+}
+
+#javatext {
+    text-align: right;
+    font-size: 1.3em;
+    padding-left:100px;
+}
+
+#python {
+    padding-left:20px;
+    padding-bottom:60px;
+    float: left;
+    margin-left:10px;
+}
+
+#sources {
+    color:white;
+    text-align: center;
+    font-size:.8em;
+}
+
