@@ -1,0 +1,62 @@
+body {
+        color: White; 
+        background-image:url("./img/nba.jpg");
+    }
+h1{
+        text-align:center;
+}
+
+h2 {
+        text-align:center;
+}
+
+#west {
+    position: fixed;
+    bottom: 7;
+    left: 0;
+    width: 300px;
+    
+}
+
+#east {
+    position: fixed;
+    bottom: 7;
+    right: 0;
+    width: 300px;
+    
+}
+#output {
+     text-align:center;
+     margin-top: 100px;
+}
+.winsWest {
+    position: fixed;
+    bottom: 75px;
+    left: 60px;
+    font-size:6em;
+    font-weight: bold;
+    color:white;
+}
+.winsEast {
+    position: fixed;
+    bottom: 75px;
+    right: 60px;
+    font-size:6em;
+    font-weight:bold;
+    color: white;
+}
+input 
+{
+        bottom:75px;
+        left:630px;
+        position:absolute;
+        outline:none; 
+}
+
+h3, h4
+{
+    font-size:4em;
+    color: red;
+    font:bold;
+}
+
