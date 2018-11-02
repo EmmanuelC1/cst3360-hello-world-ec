@@ -12,7 +12,7 @@
   <head>
     <title>Welcome</title>
     <style>
-      .mem-div {
+      .meme-div {
         width: 150px;
         height: 150px;
         background-size: cover;
@@ -20,34 +20,34 @@
         position: relative;
         font-size:18px;
       }
-      /*.memes-container .meme-div{*/
-      /*  width: 150px;*/
-      /*  height:150px;*/
-      /*  float: left;*/
-      /*  margin: 10px 20px;*/
-      /*}*/
+      .memes-container .meme-div{
+        width: 150px;
+        height:150px;
+        float: left;
+        margin: 10px 20px;
+      }
       
-      /*.memes-container .meme-div h2 {*/
-      /*  font-size: 18px;*/
-      /*}*/
+      .memes-container .meme-div h2 {
+        font-size: 18px;
+      }
       
       
-      /*h2 {*/
-      /*  position: absolute;*/
-      /*  left: 0;*/
-      /*  right: 0;*/
-      /*  margin: 15px 0;*/
-      /*  padding: 0 5px;*/
-      /*  font-family: impact;*/
-      /*  color: white;*/
-      /*  text-shadow: 1px 1px black;*/
-      /*}*/
-      /*.line1 {*/
-      /*   top: 0;*/
-      /* }*/
-      /*.line2 {*/
-      /*   bottom: 0;*/
-      /* }*/
+      h2 {
+        position: absolute;
+        left: 0;
+        right: 0;
+        margin: 15px 0;
+        padding: 0 5px;
+        font-family: impact;
+        color: white;
+        text-shadow: 1px 1px black;
+      }
+      .line1 {
+         top: 0;
+       }
+      .line2 {
+         bottom: 0;
+       }
     </style>
   </head>
   <body>
@@ -60,7 +60,7 @@
       echo '<h2 class="line2">' . $result[0]["line2"] . '</h2>';
       echo '</div>';
     ?>
-    <h2>Welcome to my Meme Generator!</h2>
+    <h1>Welcome to my Meme Generator!</h1>
     
     <form method="post" action="meme.php">
         Line 1: <input type="text" name="line1"></input> <br/>
