@@ -1,0 +1,62 @@
+
+body{
+	margin-left:350px;
+	margin-top:100px;
+	background-color: black;
+}
+
+#gameWindow, #gameOverWindow {
+	position: relative;
+	width: 600px;
+	height: 400px;
+	background-color: black;
+	overflow: hidden;
+}
+
+#pacman, #redGhost, #pinkGhost, #greenGhost, #blueGhost {
+	position: absolute;
+}
+
+.rotate90 {
+	transform:rotate(90deg);
+	behavior:url(-ms-transform.htc); 	/* FireFox */
+	-moz-transform:rotate(90deg);		/* Safari and Chrome */
+	-webkit-transform:rotate(90deg);	/* Opera */
+	-o-transform:rotate(90deg);			/* IE9 */
+	-ms-transform:rotate(90deg);		/* IE6, IE7 */
+}
+
+.rotate270 {
+	transform:rotate(270deg);
+	behavior:url(-ms-transform.htc); 	/* FireFox */
+	-moz-transform:rotate(270deg);		/* Safari and Chrome */
+	-webkit-transform:rotate(270deg);	/* Opera */
+	-o-transform:rotate(270deg);			/* IE9 */
+	-ms-transform:rotate(270deg);		/* IE6, IE7 */
+}
+
+.flip-horizontal {
+	-moz-transform: scaleX(-1);
+	-webkit-transform: scaleX(-1);
+	-o-transform: scaleX(-1);
+	transform: scaleX(-1);
+	-ms-filter: fliph;		/* IE */
+	filter: fliph;			/* IE */
+}
+
+.wall {
+	position: absolute;
+	background-color: red;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+}
+
+h1 {
+	font-family: 'Aldrich', sans-serif;
+	font-size: 40px;
+	margin-left:210px;
+	color: white;
+}
+
+
