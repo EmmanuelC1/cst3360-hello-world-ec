@@ -9,7 +9,7 @@
             foreach ($items as $item)
             {
                 $itemName = $item['name'];
-                $itemPrice = $item['price'];
+                $itemPrice = $item['salePrice'];
                 $itemImage = $item['thumbnailImage'];
                 $itemId = $item['itemId'];
                 
@@ -17,7 +17,7 @@
                 echo '<tr>';
                 echo "<td><img src='$itemImage'></td>";
                 echo "<td><h4>$itemName</h4></td>";
-                echo "<td><h4>$itemPrice</h4></td>";
+                echo "<td><h4>$$itemPrice</h4></td>";
                 
                 //Hidden input element containing the item name
                 echo "<form method='post'>";
@@ -52,7 +52,7 @@
             foreach ($_SESSION['cart'] as $item)
             {
                 //  $itemName = $item['name'];
-                //  $itemPrice = $item['price'];
+                  $itemPrice = $item['price'];
                 //  $itemImage = $item['image'];
                  $itemId = $item['id'];
                  $itemQuant = $item['quantity'];
@@ -61,7 +61,7 @@
                  echo '<tr>';
                  echo "<td><img src='" . $item['image'] . "'></td>";
                  echo "<td><h4>". $item['name'] . "</h4></td>";
-                 echo "<td><h4>". $item['price'] . "</h4></td>";
+                 echo "<td><h4>$". $item['price'] . "</h4></td>";
                  //echo "<td><h4>$itemQuant</h4></td>";
                  
                  //Update form for this item
