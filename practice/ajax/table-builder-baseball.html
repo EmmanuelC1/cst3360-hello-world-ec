@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>AJAX Call</title>
+
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+        <!-- Optional bootstrap theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+        <style>
+            .team-logo {
+                width: 50px;
+                height: 50px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="container">
+            <h1>Standings as of <span></span></h1>
+            <div class="table-responsive">
+                <table id="results" class="table table-hover">
+                    <thead>
+                        <th>Conference</th>
+                        <th>Logo</th>   
+                        <th>Team</th>
+                        <th>Wins</th>
+                        <th>Losses</th>
+                        <th>Games Back</th>
+                        <th>Last 10</th>
+                        <th>Streak</th>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+                <img class="loading" src="loading_spinner.gif" />
+            </div>
+        </div>
+
+        <!-- jQuery -->
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-dateFormat/1.0/jquery.dateFormat.min.js"></script>
+
+        <!-- Bootstrap -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+        <!-- DEMO CODE -->
+        <script>
+            // Document Ready: 
+            // $(function() {
+
+            // })
+
+            $(function() {
+                $(".loading").hide()
+
+                // Show spinner
+                $(".loading").show()
+
+                $.ajax({
+                        // The URL for the request
+                        url: "https://www.showdeolabs.com/cors?url=https://erikberg.com/mlb/standings.json",
+                        //url: "https://erikberg.com/mlb/standings.json",
+
+                        // Whether this is a POST or GET request
+                        type: "GET",
+
+                        // The type of data we expect back
+                        dataType: "json",
+
+                        //jsonpCallback: 'callback',
+                    })
+                    // Code to run if the request succeeds (is done);
+                    // The response is passed to the function
+                    .done(function(data) {
+                        console.log(data);
+
+                        // Do not do anything if there is no data
+                        if (!data || data.length == 0) return;
+
+                        // format the date
+                        // var asOfDate = new Date(data.standings_date);
+                        // var asOfDateFormatted = (asOfDate.getMonth() + 1) + '/' + asOfDate.getDate() + '/' + asOfDate.getFullYear();
+
+                        // Better way, easier way to format?
+                        // Try https://github.com/phstc/jquery-dateFormat
+                        var asOfDateFormatted = $.format.date(data.standings_date, "d-MMM-yy");
+
+                        // Insert the date
+                        $('h1 > span').html(asOfDateFormatted);
+
+                        // Print the standings
+                        for (var i in data.standing) {
+                            var standing = data.standing[i];
+
+                            $('#results > tbody')
+                                .append($('<tr>')
+                                    .append($('<td>')
+                                        .html(standing.conference)
+                                    )
+                                    .append($('<td>')
+                                        .append($('<img>')
+                                            .attr('src', getLogoFor(standing.last_name))
+                                            .attr('class', 'team-logo')
+                                        )
+                                    )
+                                    .append($('<td>')
+                                        .html(standing.first_name + " " + standing.last_name)
+                                    )
+                                    .append($('<td>')
+                                        .html(standing.won)
+                                    )
+                                    .append($('<td>')
+                                        .html(standing.lost)
+                                    )
+                                    .append($('<td>')
+                                        .html(standing.games_back)
+                                    )
+                                    .append($('<td>')
+                                        .html(standing.last_ten)
+                                    )
+                                    .append($('<td>')
+                                        .html(standing.streak)
+                                    )
+                                );
+                        }
+                    })
+                    // Code to run if the request fails; the raw request and
+                    // status codes are passed to the function
+                    .fail(function(xhr, status, errorThrown) {
+                        console.log("Sorry, there was a problem!");
+                        console.log("Error: " + errorThrown);
+                        console.log("Status: " + status);
+                        console.dir(xhr);
+                    })
+                    // Code to run regardless of success or failure;
+                    .always(function(xhr, status) {
+                        console.log("The request is complete!");
+                        $(".loading").hide()
+                    });
+            })
+
+            function getLogoFor(team) {
+                switch (team) {
+                    case "Angels":
+                        return "http://mlb.mlb.com/mlb/images/team_logos/logo_laa_79x76.jpg";
+                    case "Astros":
+                        return "http://mlb.mlb.com/mlb/images/team_logos/logo_hou_79x76.jpg";
+                    case "Athletics":
+                        return "http://mlb.mlb.com/mlb/images/team_logos/logo_oak_79x76.jpg";
+                    case "Blue Jays":
+                        return "http://mlb.mlb.com/mlb/images/team_logos/logo_tor_79x76.jpg";
+                    case "Braves":
+                        return "http://mlb.mlb.com/mlb/images/team_logos/logo_atl_79x76.jpg";
+                    case "Cardinals":
+                        return "http://mlb.mlb.com/mlb/images/team_logos/logo_stl_79x76.jpg";
+                    case "Cubs":
+                        return "http://mlb.mlb.com/mlb/images/team_logos/logo_chc_79x76.jpg";
+                    case "Diamondbacks":
+                        return "http://mlb.mlb.com/mlb/images/team_logos/logo_ari_79x76.jpg";
+                    case "Dodgers":
+                        return "http://mlb.mlb.com/mlb/images/team_logos/logo_lad_79x76.jpg";
+                    case "Indians":
+                        return "http://mlb.mlb.com/mlb/images/team_logos/logo_cle_79x76.jpg";
+                    case "Giants":
+                        return "http://mlb.mlb.com/mlb/images/team_logos/logo_sf_79x76.jpg";
+                    case "Mariners":
+                        return "http://mlb.mlb.com/mlb/images/team_logos/logo_sea_79x76.jpg";
+                    case "Marlins":
+                        return "http://mlb.mlb.com/mlb/images/team_logos/logo_mia_79x76.jpg";
+                    case "Mets":
+                        return "http://mlb.mlb.com/mlb/images/team_logos/logo_nym_79x76.jpg";
+                    case "Nationals":
+                        return "http://mlb.mlb.com/mlb/images/team_logos/logo_was_79x76.jpg";
+                    case "Orioles":
+                        return "http://mlb.mlb.com/mlb/images/team_logos/logo_bal_79x76.jpg";
+                    case "Padres":
+                        return "http://mlb.mlb.com/mlb/images/team_logos/logo_sd_79x76.jpg";
+                    case "Phillies":
+                        return "http://mlb.mlb.com/mlb/images/team_logos/logo_phi_79x76.jpg";
+                    case "Pirates":
+                        return "http://mlb.mlb.com/mlb/images/team_logos/logo_pit_79x76.jpg";
+                    case "Rangers":
+                        return "http://mlb.mlb.com/mlb/images/team_logos/logo_tex_79x76.jpg";
+                    case "Rays":
+                        return "http://mlb.mlb.com/mlb/images/team_logos/logo_tb_79x76.jpg";
+                    case "Reds":
+                        return "http://mlb.mlb.com/mlb/images/team_logos/logo_cin_79x76.jpg";
+                    case "Red Sox":
+                        return "http://mlb.mlb.com/mlb/images/team_logos/logo_bos_79x76.jpg";
+                    case "Rockies":
+                        return "http://mlb.mlb.com/mlb/images/team_logos/logo_col_79x76.jpg";
+                    case "Royals":
+                        return "http://mlb.mlb.com/mlb/images/team_logos/logo_kc_79x76.jpg";
+                    case "Tigers":
+                        return "http://mlb.mlb.com/mlb/images/team_logos/logo_det_79x76.jpg";
+                    case "Twins":
+                        return "http://mlb.mlb.com/mlb/images/team_logos/logo_min_79x76.jpg";
+                    case "White Sox":
+                        return "http://mlb.mlb.com/mlb/images/team_logos/logo_cws_79x76.jpg";
+                    case "Yankees":
+                        return "http://mlb.mlb.com/mlb/images/team_logos/logo_nyy_79x76.jpg";
+                    default:
+                        return "http://content.sportslogos.net/logos/4/490/full/1986.gif";
+                }
+            }
+        </script>
+    </body>
+
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title> </title>
+    <link rel="stylesheet" type="text/css" href="salon.css">
+</head>
+
+<body>
+    <!--Search bar-->
+    <div>
+
+    </div>
+
+    <!--Pages-->
+    <div id="pages">
+        <table>
+            <thead>
+                <th>Code</th>
+                <th>Run From</th>
+                <th>To</th>
+                <th>Type</th>
+                <th>
+                    <button class="add action">
+                        <img src="img/salon-add.png" />
+                    </button>
+                </th>
+            </thead>
+            <tbody>
+                <!--Put all the pages data here-->
+            </tbody>
+        </table>
+
+    </div>
+
+    <!--Modal-->
+    <div id="modalBox" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+
+            <div>
+                <label for="fromDate">From</label>
+                <input id="fromDate" type="date" />
+                <label for="toDate">To</label>
+                <input id="toDate" type="date" />
+            </div>
+            <div>
+                <label for="code">Code</label>
+                <input id="code" type="text" />
+            </div>
+            <div>
+                <label for="statusId">Status</label>
+                <select>
+                    <option value="0">Archived</option>
+                    <option value="1">On Hold</option>
+                    <option value="2">Active</option>
+                </select>
+                <label for="typeId">Type</label>
+                <select>
+                    <option value="">---Please Select One---</option>
+                    <option value="0">Standard</option>
+                    <option value="1">On Hold</option>
+                    <option value="2">Active</option>
+                </select>
+            </div>
+            <div>
+                <label for="title">Title</label>
+                <input id="title" type="text" />
+            </div>
+            <div>
+                <label for="slogan">Slogan</label>
+                <input id="slogan" type="text" />
+            </div>
+            <div>
+                <label for="action">Action</label>
+                <input id="action" type="text" />
+            </div>
+            <div>
+                <span>Description</label>
+                <textarea id="description" rows="5"></textarea>
+            </div>
+
+            <div>
+                <button class="save">Save</button>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="salon.js"></script>
+
+</body>
+
+</html>

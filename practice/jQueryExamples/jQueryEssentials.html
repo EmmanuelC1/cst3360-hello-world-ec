@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>jQuery Essentials</title>
+</head>
+
+<body>
+
+    <div id="main"></div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <script>
+        ////////////////////////////////////////
+        // How do I make a new element?
+        ////////////////////////////////////////
+
+        // In JavaScript
+        var newDivJs = document.createElement("div");
+        console.log("the document object", document);
+        console.dir(document);
+        console.log("the new div DOM object in JS");
+        console.dir(newDivJs);
+        
+        // In jQuery
+        var newDivJQuery = $("<div>") // Don't forget the < and >
+
+        ////////////////////////////////////////
+        // How do I set an attribute value
+        ////////////////////////////////////////
+
+        // In JavaScript
+        newDivJs.setAttribute("class", "hidden");
+
+        // In jQuery
+        newDivJQuery.attr("class", "hidden");
+
+        ////////////////////////////////////////
+        // How do I get the value of an attribute
+        ////////////////////////////////////////
+
+        // In JavaScript
+        var classJs = newDivJs.getAttribute("class");
+
+        // In jQuery
+        var classJQuery = newDivJQuery.attr("class");
+
+        ////////////////////////////////////////
+        // How do I set the inner text (html) of an element
+        ////////////////////////////////////////
+
+        // In JavaScript
+        newDivJs.innerHTML = "There is something in here";
+
+        // In jQuery
+        newDivJQuery.html("There is something in here");
+
+        ////////////////////////////////////////
+        // How do I get an element by its id attribute 
+        ////////////////////////////////////////
+
+        // In JavaScript
+        var mainDivJs = document.getElementById("main");
+
+        // In jQuery
+        var mainDivJQuery = $("#main");
+
+        ////////////////////////////////////////
+        // How do I append an an element as a child
+        ////////////////////////////////////////
+
+        // In JavaScript
+        mainDivJs.appendChild(newDivJs);
+
+        // In jQuery
+        mainDivJQuery.append(newDivJQuery);
+
+
+        ////////////////////////////////////////
+        // VERY IMPORTANT!!!!!                
+        ///////////////////////////////////////
+
+        // newDivJs DOES NOT EQUAL newDivJQuery
+        if (newDivJs === newDivJQuery) {
+            console.log("JS object and jQuery object are equal")
+        }
+        else {
+            console.log("JS object and jQuery object are NOT equal")
+        }
+
+        ////////////////////////////////////////
+        // How do I go back and forth between JS and jQuery elements
+        ////////////////////////////////////////
+
+        // From jQuery to JavaScript
+        var convertedDivJs = newDivJQuery.get(0);
+
+        // In jQuery
+        var convertedDivJQuery = $(newDivJs);
+
+        ////////////////////////////////////////
+        // How do I handle an event
+        ////////////////////////////////////////
+
+        // In JavaScript
+        newDivJs.addEventListener("click", function(e) {
+
+        });
+
+        // In jQuery
+        newDivJQuery.on("click", function(e) {
+
+        });
+
+        ////////////////////////////////////////
+        // Commonly, you won't find a var with 
+        // the jQuery element at all
+        ////////////////////////////////////////
+
+        $("#main").on("click", function(e) {
+
+        });
+
+        ////////////////////////////////////////
+        // Method Chaining 
+        ////////////////////////////////////////
+
+        // In jQuery, each helper function returns the object
+        // that is returned by $("#main"), so you can keep calling
+        // functions on functions like in a chain
+        $("#main")
+            .attr("class", "hidden")
+            .html("There is something in here")
+            .on("click", function(e) {
+
+            });
+    </script>
+
+</body>
+
+</html>

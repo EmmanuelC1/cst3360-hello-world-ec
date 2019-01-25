@@ -421,38 +421,3 @@ function moveBlueGhost() {
     
     bgDirection = bgNewDirection;
 }
-
-function loadGameOver() {
-    output = document.getElementById('output');
-	pacman = document.getElementById('pacman');
-	pacman.style.left = '280px';
-	pacman.style.top = '240px';
-	pacman.style.width ='40px';
-	pacman.style.height = '40px';
-	
-	redGhost = document.getElementById('redGhost');
-	redGhost.style.left = '250px';
-	redGhost.style.top = '40px';
-	redGhost.style.width = '40px';
-	redGhost.style.height = '40px';
-	
-	pinkGhost = document.getElementById('pinkGhost');
-	pinkGhost.style.left = '310px';
-	pinkGhost.style.top = '40px';
-	pinkGhost.style.width = '40px';
-	pinkGhost.style.height = '40px';
-	
-	greenGhost = document.getElementById('greenGhost');
-	greenGhost.style.left = '200px';
-	greenGhost.style.top = '40px';
-	greenGhost.style.width = '40px';
-	greenGhost.style.height = '40px';
-	
-	blueGhost = document.getElementById('blueGhost');
-	blueGhost.style.left = '360px';
-	blueGhost.style.top = '40px';
-	blueGhost.style.width = '40px';
-	blueGhost.style.height = '40px';
-	
-	output.style = 'GAME OVER';
-}

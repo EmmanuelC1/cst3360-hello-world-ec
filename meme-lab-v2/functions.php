@@ -36,10 +36,10 @@ function searchForMemes($userID = '') {
     } 
     
     if(isset($_POST['meme-type']) && !empty($_POST['meme-type'])) {
-      $sql .= " AND meme_type = '{$_POST['meme-type']}'"; 
+      $sql .= " AND categories.meme_type = '{$_POST['meme-type']}'"; 
     }
     if(isset($_POST['order'])) {
-      $sql .= " ORDER BY create_date"; 
+      $sql .= " ORDER BY all_memes.create_date"; 
       
       if ($_POST['order'] == 'newest-first') {
         $sql .= " DESC"; 
